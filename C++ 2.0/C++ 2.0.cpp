@@ -25,14 +25,14 @@ public:
         return is;
     }
     void Reading() {
-        ofstream outFile("File");
+        ofstream outFile("File.txt");
         if (outFile.is_open()) {
             outFile << speed << weight << weight << year;
             outFile.close();
         }
     }
     void Recording() {
-        ifstream inFile("File");
+        ifstream inFile("File.txt");
         if (inFile.is_open()) {
             inFile >> speed >> weight >> brand >> year;
             cout << "Speed: " << speed << endl << "Weight: " << weight << endl << "Brand: " << brand << endl << "Year: " << year;

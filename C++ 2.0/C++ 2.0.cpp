@@ -24,23 +24,26 @@ public:
         is >> p.speed >> p.brand >> p.weight >> p.year;
         return is;
     }
-
-
+    void Reading() {
+        ofstream outFile("File");
+        if (outFile.is_open()) {
+            outFile << speed << weight << weight << year;
+            outFile.close();
+        }
+    }
+    void Recording() {
+        ifstream inFile("File");
+        if (inFile.is_open()) {
+            inFile >> speed >> weight >> brand >> year;
+            cout << "Speed: " << speed << endl << "Weight: " << weight << endl << "Brand: " << brand << endl << "Year: " << year;
+            inFile.close();
+        }
+    }
 };
 
 int main()
 {
     Car p;
-
-    ofstream outFile("person.txt");
-    if (outFile.is_open()) {
-        outFile << p;
-        outFile.close();
-    }
-    ifstream inFile("person.txt");
-    if (inFile.is_open()) {
-        inFile >> p;
-        cout << "Car: " << p.name
-        inFile.close();
-    }
+    p.Reading();
+    p.Recording();
 }
